@@ -85,7 +85,7 @@ Material:
     - _Opacity: 1
     - _Parallax: 0.05
     - _SmoothnessTextureChannel: 0
-    - _SnowRank: 0.0560119
+    - _SnowRank: 0.0028258604
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
