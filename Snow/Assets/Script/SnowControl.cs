@@ -1,21 +1,34 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SnowControl : MonoBehaviour {
     
-    GameObject rocks;
+    Renderer snowRenderer;
+    float time = 0.0f;
 	void Start () {
-        if(gameObject.tag== "BackGround")
-        {
-            gameObject.GetComponent<Renderer>().
-                sharedMaterial.SetFloat("_SnowRank", 0.00f);
-        }
-        else if(gameObject.GetComponent<Renderer>() != null)
-            gameObject.GetComponent<Renderer>().
-                sharedMaterial.SetFloat("_SnowRank", 0.0f);
+        snowRenderer = gameObject.GetComponent<Renderer>();
+        if (gameObject.GetComponent<Renderer>() != null)
+            snowRenderer.sharedMaterial.SetFloat("_SnowRank", 0.0f);
     }
 	void Update () {
-		
-	}
+        time += Time.deltaTime;
+        if (gameObject.tag == "BackGround")
+        {
+            snowRenderer.sharedMaterial.SetFloat("_SnowRank", time / 8000);
+        }
+        else if (gameObject.GetComponent<Renderer>() != null)
+            snowRenderer.sharedMaterial.SetFloat("_SnowRank", time / 500);
+    }
+
+    public void ClearSnow()
+    {
+        SceneManager.LoadScene("Main");
+    }
+
+    public void AddSnowRank()
+    {
+        Time.timeScale = 2;
+    }
 }
