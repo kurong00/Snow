@@ -31,8 +31,11 @@
 		fixed4 _Color;
 
 		inline float4 LightingSnowDiffuse(SurfaceOutput s, fixed3 lightDir, fixed atten){
+			//这里暂时用 half lambert
 			half NdotL = dot (s.Normal, lightDir);
 			half diff = NdotL * 0.5 + 0.5;
+			//普通颜色
+			//half diff = max(0,dot (s.Normal, lightDir));
 			half4 c;
 			c.rgb = s.Albedo * _LightColor0.rgb * (diff * atten);
 			c.a = s.Alpha;

@@ -91,7 +91,7 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _Snow: 0
     - _SnowDepth: 0
-    - _SnowRank: 0.0028258604
+    - _SnowRank: 0.0032561435
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
